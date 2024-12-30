@@ -1,0 +1,160 @@
+/* Variables de colores */
+:root {
+  --fondo-principal: #0f0f0f;
+  --neon-azul: #00ffff;
+  --neon-rojo: #ff007f;
+  --blanco: #ffffff;
+  --gris-oscuro: #1e1e1e;
+}
+
+/* Estilos comunes */
+body {
+  background-color: var(--fondo-principal);
+  font-family: 'Orbitron', sans-serif;
+  color: var(--blanco);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+header {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--neon-azul);
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 100px; /* Tamaño base */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Título */
+h1 {
+  color: var(--neon-azul);
+  text-align: center;
+  text-shadow: 0 0 10px var(--neon-azul), 0 0 20px var(--neon-azul);
+}
+
+/* Estilos de formulario y botones */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: var(--gris-oscuro);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--neon-azul);
+}
+
+input,
+button {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 5px;
+  border: 2px solid var(--neon-rojo);
+}
+
+input:focus,
+button:hover {
+  box-shadow: 0 0 10px var(--neon-rojo);
+  border-color: var(--neon-rojo);
+}
+
+button {
+  background-color: transparent;
+  color: var(--blanco);
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--neon-azul);
+  font-size: 0.9em;
+}
+
+/* Media Queries para responsive design */
+@media (max-width: 768px) {
+  .logo {
+    width: 80px; /* Logo más pequeño */
+  }
+
+  header {
+    font-size: 1em;
+  }
+
+  form {
+    width: 250px; /* Reducir ancho del formulario */
+    padding: 15px;
+  }
+
+  input,
+  button {
+    padding: 10px;
+  }
+
+  button {
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    text-shadow: 0 0 8px var(--neon-azul), 0 0 16px var(--neon-azul);
+  }
+
+  footer {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 60px; /* Logo aún más pequeño */
+  }
+
+  header {
+    font-size: 0.9em;
+  }
+
+  form {
+    width: 200px; /* Reducir aún más el ancho del formulario */
+    padding: 10px;
+  }
+
+  input,
+  button {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  button {
+    font-size: 0.9em;
+  }
+
+  h1 {
+    font-size: 1.2em;
+    text-shadow: 0 0 6px var(--neon-azul), 0 0 12px var(--neon-azul);
+  }
+
+  footer {
+    font-size: 0.7em;
+  }
+}

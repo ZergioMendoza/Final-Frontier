@@ -1,0 +1,48 @@
+/* Popup de favoritos */
+#popupFavorites {
+    display: none; /* Asegúrate de que inicialmente esté oculto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Reducido un 30% del tamaño original */
+    height: 70%; /* Ajuste proporcional en altura */
+    background-color: #4776a5; /* Gris claro para el fondo del popup */
+    border-radius: 15px; /* Bordes curvados */
+    border: 3px solid var(--neon-azul); /* Borde azul neón */
+    box-shadow: 0 0 10px var(--neon-azul), 0 0 20px var(--neon-azul); /* Sombra azul neón */
+    z-index: 100;
+    overflow: hidden;
+  }
+  
+  /* Contenido dentro del popup */
+  .popup-content {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100% - 40px); /* Restando el padding */
+  }
+  
+  /* Botón de cerrar el popup */
+  .popup-favorites__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--neon-rojo);
+    color: var(--blanco);
+    border: none;
+    font-size: 1.5em;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup-favorites__close:hover {
+    background-color: var(--neon-azul);
+  }
+  
+  /* Asegurar que el popup se cierre correctamente al hacer clic fuera */
+  .popup-favorites__close:focus {
+    outline: none;
+  }
+  

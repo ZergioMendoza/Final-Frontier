@@ -1,0 +1,81 @@
+1. Estructura del Proyecto:
+Creaste una página principal con un header y footer fijos.
+El header contiene enlaces para "Inicio", "Favoritos" y un formulario de búsqueda al lado derecho.
+El footer incluye un botón de "Cerrar sesión" en la parte inferior derecha y enlaces a redes sociales.
+El body principal contiene un área para mostrar las películas populares en tarjetas con imagen, título y descripción.
+Se usó un fondo neon y un estilo futurista inspirado en la película Blade Runner.
+2. Estilos CSS:
+Colores y tipografía:
+
+Usamos variables CSS (:root) para definir colores como neon azul, neon rojo, blanco y gris oscuro.
+La tipografía de la página es Orbitron, una fuente futurista.
+Header:
+
+El header está dividido en dos partes: enlaces a "Inicio" y "Favoritos" a la izquierda y el formulario de búsqueda a la derecha.
+Añadimos un ícono SVG en el botón de "Cerrar sesión" en la parte inferior derecha.
+Main Content:
+
+El contenido principal ahora ocupa casi todo el ancho de la página, con un borde de color neon azul.
+Se crearon tarjetas de películas con una imagen, título y descripción.
+Se dejó espacio para agregar la funcionalidad de "Me gusta" en cada tarjeta de película utilizando íconos SVG de estrellas (blanca y negra).
+Footer:
+
+El footer incluye un texto centrado con el mensaje de derechos reservados.
+Se posicionó el botón de "Cerrar sesión" en la esquina inferior derecha.
+3. Funcionalidad de Íconos y Botones:
+Botón de "Cerrar sesión":
+
+Agregamos un ícono SVG (por ejemplo, logout.svg) al lado del texto "Cerrar sesión".
+Se aplicaron estilos para que el ícono y el texto se alineen correctamente.
+Botón de "Inicio":
+
+Añadimos un ícono SVG (por ejemplo, home.svg) al lado del texto "Inicio".
+4. Modificaciones Realizadas:
+El contenido principal (main-content) fue ampliado para ocupar más ancho en pantallas grandes (95% del ancho de la página).
+Las tarjetas de película ahora tienen un tamaño de imagen más pequeño para ajustarse mejor al diseño.
+5. Iconos de Favoritos:
+Se incluyeron íconos de estrella blanca y estrella negra para la funcionalidad de "Me gusta", que se muestran junto al nombre de la película.
+Para implementar la funcionalidad de favoritos, la idea es usar SVGs y eventualmente interactuar con JavaScript para actualizar los favoritos.
+6. Próximos Pasos:
+Integración con la API para obtener películas populares y mostrar dinámicamente la información.
+Funcionalidad de "Me gusta" en las tarjetas de película, utilizando JavaScript para gestionar los favoritos.
+Pop-up de favoritos que se abriría al hacer clic en el enlace "Favoritos".
+Este resumen contiene los principales cambios y avances que hemos hecho en el proyecto hasta ahora. Lo puedes utilizar como referencia para continuar con el desarrollo y agregar más características en el futuro. ¡Espero que te sea útil!
+
+
+
+LO QUE SIGUE!!!!!!!!
+
+1. Integración con la API:
+Obtener información dinámica de las películas populares desde una API (como TMDB).
+Mostrar las películas en las tarjetas con imagen, título y descripción.
+Implementar la carga dinámica de datos en el main-content.
+2. Funcionalidad de "Me gusta":
+Implementar la funcionalidad para que los usuarios puedan dar me gusta a las películas.
+Cambiar el ícono de la estrella (de negra a blanca) cuando se haga clic en ella.
+Guardar los favoritos en el cliente (por ejemplo, utilizando localStorage) o eventualmente en un servidor para persistencia.
+Mostrar la lista de favoritos en la página "Favoritos", accediendo a los datos guardados.
+3. Página de "Favoritos":
+Crear una página o sección que muestre las películas que el usuario ha marcado como favoritas.
+Usar un popup o una página separada para mostrar los favoritos.
+Mostrar las películas favoritas en formato similar al de la página principal, pero con un diseño centrado en los elementos favoritos.
+4. Funcionalidad de "Favoritos" en el Header:
+Implementar un popup de favoritos cuando el usuario haga clic en el enlace "Favoritos" en el header.
+Mostrar las películas favoritas dentro del popup, permitiendo al usuario ver y gestionar sus preferencias.
+5. Gestión de la Sesión de Usuario:
+Implementar la lógica de registro e inicio de sesión en la página "Register" y "Login".
+Almacenar las credenciales de usuario (usando almacenamiento local o cookies) para permitir el inicio y cierre de sesión.
+Hacer que el botón de "Cerrar sesión" en el footer funcione correctamente, eliminando los datos de la sesión y redirigiendo al usuario al formulario de inicio de sesión.
+6. Mejoras en la Interactividad:
+Añadir transiciones y animaciones adicionales para mejorar la experiencia de usuario.
+Implementar un efecto hover en las tarjetas de película para que el usuario vea más detalles o la opción de marcar como favorito.
+7. Optimización y Responsividad:
+Asegurarse de que el diseño sea responsivo y se adapte bien a diferentes tamaños de pantalla (móviles, tablets, desktop).
+Mejorar la accesibilidad de la página, asegurándose de que los elementos sean fáciles de interactuar para todos los usuarios.
+8. Despliegue y Pruebas:
+Realizar pruebas para asegurar que todo funcione correctamente, especialmente las interacciones con los botones y la API.
+Desplegar el proyecto en un servidor o plataforma de hosting (por ejemplo, Netlify o Vercel) para que esté disponible en línea.
+9. Opcionales:
+Agregar un sistema de búsqueda avanzado para permitir a los usuarios buscar películas por diferentes criterios (género, año, etc.).
+Mejorar el diseño de las páginas con más detalles visuales, como efectos de hover para los botones y las tarjetas de película.
+Este resumen cubre los pasos y tareas que faltan por realizar para completar el proyecto. Al seguir estos pasos, deberías poder agregar la funcionalidad necesaria y asegurarte de que todo funcione correctamente. ¡Ánimo con el siguiente paso!

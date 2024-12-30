@@ -1,0 +1,334 @@
+:root {
+  --fondo-principal: #0f0f0f;
+  --neon-azul: #00ffff;
+  --neon-rojo: #ff007f;
+  --blanco: #ffffff;
+  --gris-oscuro: #1e1e1e;
+}
+
+/* Estilos comunes */
+body {
+  background-color: var(--fondo-principal);
+  font-family: 'Orbitron', sans-serif;
+  color: var(--blanco);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: var(--neon-azul);
+  font-size: 1.2em;
+  z-index: 10;
+}
+
+.header__logo {
+  width: 150px; /* Ajusta el tamaño según lo que necesites */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 20px; /* Ajuste para pantallas pequeñas */
+  transform: translateX(-50%); /* Centrado exacto */
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__link {
+  margin-right: 20px;
+  text-decoration: none;
+  color: var(--neon-azul);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header__link:hover {
+  color: var(--neon-rojo);
+}
+
+/* Estilo del ícono en el botón de cerrar sesión */
+.header__logout {
+  display: flex;
+  align-items: center;
+  background-color: var(--neon-rojo);
+  color: var(--blanco);
+  font-size: 1em;
+  padding: 8px 12px; /* Ajustado para hacerlo más pequeño */
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header__logout:hover {
+  background-color: var(--blanco);
+  color: var(--neon-rojo);
+  box-shadow: 0 0 10px var(--neon-rojo), 0 0 20px var(--neon-rojo);
+}
+
+.header__logout-icon {
+  width: 15px; /* Icono más pequeño */
+  height: 15px;
+  margin-right: 8px;  /* Espacio reducido */
+}
+
+/* Estilo del ícono en los enlaces del header */
+.header__link {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  text-decoration: none;
+  color: var(--neon-azul);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header__link:hover {
+  color: var(--neon-rojo);
+}
+
+.header__icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;  /* Espacio entre el ícono y el texto */
+}
+
+/* Estilos del formulario de búsqueda */
+.search__form {
+  display: flex;
+  
+}
+
+.search__input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid var(--neon-rojo);
+  margin-right: 10px;
+  color: var(--blanco);
+  background-color: var(--gris-oscuro);
+}
+
+.search__button {
+  background-color: var(--neon-rojo);
+  color: var(--blanco);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search__button:hover {
+  background-color: var(--neon-azul);
+  box-shadow: 0 0 10px var(--neon-azul), 0 0 20px var(--neon-azul);
+}
+
+/* Contenido principal */
+.main-content {
+  background-color: var(--gris-oscuro);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--neon-azul);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  max-height: 80vh; /* Limitar la altura máxima para permitir el scroll */
+  margin: 80px auto;
+  overflow-y: auto; /* Permitir scroll vertical si hay demasiados elementos */
+  padding-bottom: 100px; /* Asegurarnos de que no se corte la parte inferior */
+}
+
+.movies__title {
+  color: var(--neon-azul);
+  text-align: center;
+  text-shadow: 0 0 10px var(--neon-azul), 0 0 20px var(--neon-azul);
+}
+
+.movies__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+/* Estilo de las tarjetas de película */
+.movie-card {
+  background-color: var(--gris-oscuro);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px var(--neon-azul);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-card__image {
+  width: 100%;
+  height: 200px;  /* Reducimos el alto de la imagen */
+  object-fit: cover;  /* Asegura que la imagen no se distorsione */
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.movie-card__title {
+  color: var(--neon-azul);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.movie-card__description {
+  color: var(--blanco);
+  text-align: center;
+}
+
+.movie-card__favorites {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+/* Estilos de las estrellas (favorito) */
+.movie-card__star--inactive {
+  display: inline-block;
+  opacity: 0.5; /* Estrella azul (menos opaca) */
+}
+
+.movie-card__star--active {
+  display: inline-block;
+  opacity: 1; /* Estrella dorada (opaca) */
+}
+
+.movie-card__star {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+
+.movie-card__star:hover {
+  transform: scale(1.2);
+}
+
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--neon-azul);
+  font-size: 0.9em;
+  padding: 10px 0;
+  background-color: var(--fondo-principal); /* Fondo para el footer */
+}
+
+/* Botón Cerrar sesión (en la parte inferior derecha) */
+header .header__logout {
+  position: fixed;
+  bottom: 40px; /* Ajustado para que no quede pegado al pie */
+  right: 20px;
+  background-color: var(--neon-rojo);
+  color: var(--blanco);
+  font-size: 0.8em;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+header .header__logout:hover {
+  background-color: var(--blanco);
+  color: var(--neon-rojo);
+  box-shadow: 0 0 10px var(--neon-rojo), 0 0 20px var(--neon-rojo);
+}
+
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .header__logo {
+    width: 120px; /* Logo más pequeño */
+  }
+
+  .search__form {
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 3cm; /* Ajuste hacia la derecha */
+  }
+
+  .search__input {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 40%;
+  }
+
+  .search__button {
+    width: 50%;
+    margin-left: 30px;
+  }
+
+  .header__nav {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .header__link {
+    margin: 5px 0;
+  }
+
+  .header__logout {
+    font-size: 0.7em;
+    padding: 6px 10px;
+  }
+  .main-content {
+    max-height: 70vh; /* Ajuste para pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .header__logo {
+    width: 60px;
+  }
+
+  .search__form {
+    margin-left: 2cm; /* Ajuste menor para pantallas más pequeñas */
+  }
+
+  .header__logout {
+    bottom: 20px;
+    font-size: 0.6em;
+    padding: 5px 8px;
+  }
+  .main-content {
+    max-height: 60vh; /* Ajuste aún mayor para pantallas móviles */
+  }
+
+  
+}
+
+
