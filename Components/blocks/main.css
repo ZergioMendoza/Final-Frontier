@@ -268,6 +268,10 @@ header .header__logout:hover {
   box-shadow: 0 0 10px var(--neon-rojo), 0 0 20px var(--neon-rojo);
 }
 
+.movie-card__save.saved svg path {
+  fill: red; /* Cambia el color a rojo */
+}
+
 
 /* Ajustes responsivos */
 @media (max-width: 768px) {

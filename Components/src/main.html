@@ -18,14 +18,14 @@
           <img src="/images/film.svg" alt="Más películas" class="header__icon">More Movies IMDb</a>
         <a href="#" class="header__link" id="favorites-btn">
           <img src="/images/briefcase.svg" alt="Favoritos" class="header__icon">Favorites</a>
-        <div id="popupFavorites" class="popup-favorites">
-          <div class="popup-favorites__content">
-            <button class="popup-favorites__close">&times;</button>
-            <div class="popup-favorites__movies">
-              <!-- Las películas favoritas se inyectarán aquí con JavaScript -->
+          <div id="popupFavorites" class="popup-favorites">
+            <div class="popup-favorites__content">
+              <button class="popup-favorites__close">&times;</button>
+              <div class="popup-content popup-favorites__movies">
+                <!-- Las películas favoritas se inyectarán aquí con JavaScript -->
+              </div>
             </div>
           </div>
-        </div>
       </nav>
       <form class="search__form" id="search-form">
         <input type="text" class="search__input" placeholder="Buscar película o serie..." required>
@@ -43,11 +43,12 @@
     </div>
   </main>
 
-  <button class="header__logout">Cerrar Sesión
-    <img src="/images/log-out.svg" alt="Cerrar sesión" class="header__logout-icon">
-  </button>
+
 
   <footer class="footer">
+    <button class="header__logout">Cerrar Sesión
+      <img src="/images/log-out.svg" alt="Cerrar sesión" class="header__logout-icon">
+    </button>
     <p class="footer__text">© 2024 Final Frontier. Todos los derechos reservados.</p>
     <div class="footer__socials">
     </div>

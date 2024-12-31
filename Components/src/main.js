@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Popup functionality
     favoritesButton.addEventListener('click', () => {
+        loadFavorites(); // Cargar favoritos antes de mostrar el popup
         popup.style.display = 'flex';
     });
 
@@ -104,20 +105,85 @@ document.addEventListener('DOMContentLoaded', () => {
     function createMovieCard(movie) {
         const card = document.createElement('div');
         card.classList.add('movie-card');
-    
-        // Comprobar si la descripción está presente
-        let plot = movie.overview || 'Descripción no disponible';
-        let rating = movie.vote_average ? movie.vote_average : 'Sin calificación';
-    
+
+        // Verificar si la película ya está en favoritos
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const isFavorite = favorites.some(fav => fav.id === movie.id);
+
+        const saveButton = `
+            <button class="movie-card__save ${isFavorite ? 'saved' : ''}" aria-label="Guardar película">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </button>
+        `;
+
         card.innerHTML = `
             <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" class="movie-card__image">
             <h3 class="movie-card__title">${movie.title}</h3>
             <p class="movie-card__year">Año: ${movie.release_date ? movie.release_date.split('-')[0] : 'N/A'}</p>
-            <p class="movie-card__description">Descripción: ${plot}</p>
-            <p class="movie-card__rating">Calificación: ${rating}</p>
+            <p class="movie-card__description">Descripción: ${movie.overview || 'Descripción no disponible'}</p>
+            ${saveButton}
         `;
-    
+
+        const saveBtn = card.querySelector('.movie-card__save');
+        saveBtn.addEventListener('click', () => {
+            toggleFavorite(movie, saveBtn);
+        });
+
         return card;
     }
-    
+
+    // Función para guardar/quitar de favoritos
+    function toggleFavorite(movie, button) {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const isFavorite = favorites.some(fav => fav.id === movie.id);
+
+        if (isFavorite) {
+            // Eliminar de favoritos
+            favorites = favorites.filter(fav => fav.id !== movie.id);
+            button.classList.remove('saved'); // Cambia el color del botón
+        } else {
+            // Agregar a favoritos
+            favorites.push(movie);
+            button.classList.add('saved'); // Cambia el color del botón
+        }
+
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+
+    // Cargar favoritos en el popup
+    function loadFavorites() {
+        const favoritesPopupContent = document.querySelector('.popup-favorites__movies');
+        const favoriteMovies = JSON.parse(localStorage.getItem('favorites')) || [];
+        favoritesPopupContent.innerHTML = '';
+
+        if (favoriteMovies.length === 0) {
+            favoritesPopupContent.innerHTML = '<p>No tienes películas favoritas guardadas.</p>';
+        } else {
+            favoriteMovies.forEach(movie => {
+                const card = document.createElement('div');
+                card.classList.add('favorite-movie-card');
+                card.innerHTML = `
+                    <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" class="favorite-movie-card__image">
+                    <h4 class="favorite-movie-card__title">${movie.title}</h4>
+                    <button class="remove-favorite" data-id="${movie.id}">Eliminar</button>
+                `;
+
+                const removeBtn = card.querySelector('.remove-favorite');
+                removeBtn.addEventListener('click', () => {
+                    removeFromFavorites(movie.id);
+                    loadFavorites();
+                });
+
+                favoritesPopupContent.appendChild(card);
+            });
+        }
+    }
+
+    function removeFromFavorites(movieId) {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        favorites = favorites.filter(movie => movie.id !== movieId);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
 });
